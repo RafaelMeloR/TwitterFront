@@ -1,0 +1,26 @@
+<div class="dialog_box">
+<div class="head_title">
+    <h2>Sign in to Twitter</h2>
+</div>
+<div class="dialog_box">
+    <form (ngSubmit)="registerUser()" #registrationForm="ngForm">
+        <div class="email_section"> 
+            <input type="text" placeholder="Username" id="username" name="username" [(ngModel)]="user.username" required>
+        </div>
+        <div class="email_section"> 
+            <input type="text" placeholder="Name" id="name" name="name" [(ngModel)]="user.name" required>
+        </div>
+        <div class="email_section"> 
+            <input type="email" id="email" placeholder="Email" name="email" [(ngModel)]="user.email" required>
+        </div> 
+        <div class="email_section">
+            <input type="text" id="profile_image" placeholder="Profile Image" name="profile_image" [(ngModel)]="user.profileImage" required>
+        </div>
+        <div class="email_section">
+            <input type="password" placeholder="Password" id="password" name="password" [(ngModel)]="user.password" required>
+        </div>
+        <div class="buttons">
+        <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+        </div>
+    </form>
+</div> 
