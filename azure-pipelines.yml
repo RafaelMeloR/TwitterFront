@@ -15,6 +15,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
+- script: | 
     ng build --prod
   displayName: 'npm install and build'
