@@ -1,10 +1,8 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core'; 
 import { ITweet } from 'src/app/model/tweets';
 import { UserProfile } from 'src/app/model/user-profile';
-import { TweetsService } from 'src/app/services/tweets/tweets.service' 
-import { TweetEventService } from 'src/app/services/shared/tweet-event.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { TweetsService } from 'src/app/services/tweets/tweets.service'  
+import { RefreshService } from 'src/app/services/shared/tweet-event.service';
 
 @Component({
   selector: 'app-home',
@@ -27,17 +25,8 @@ export class HomeComponent implements OnInit {
     private elementRef: ElementRef,
     private renderer: Renderer2,
     private tweetService: TweetsService, // Inject your tweet service
-    private tweetEventService: TweetEventService,
-    private formBuilder: FormBuilder
-  ) {
-    /*this.myForm = this.formBuilder.group({ 
-      tweetText: [''] // Assuming you have a form control named 'tweetText'
-      // You can add more form controls here
-    });*/
-  }
-  resetForm() {
-    //this.myForm.reset(); // Reset the form
-  }
+    private refreshService: RefreshService
+  ) {  }
   ngOnInit(): void {
     
   }
@@ -65,9 +54,8 @@ export class HomeComponent implements OnInit {
     
       this.tweetService.postTweets(tweet).subscribe(
         (response) => {
-          console.log('Tweet posted successfully:', response);
-          this.tweetText = ''; // Optionally, reset the tweet text after successful posting
-          this.tweetEventService.triggerTweetPosted(); // Trigger the event
+          console.log('Tweet posted successfully:', response); 
+          this.refreshService.refreshComponent(); // Trigger the event
         },
         (error) => {
           console.error('Error posting tweet:', error);
@@ -76,6 +64,7 @@ export class HomeComponent implements OnInit {
     } else {
       console.warn('Tweet text is empty. Please enter something to tweet.');
     }
+    this.tweetText = '';
 }
 
  

@@ -1,100 +1,120 @@
 .tweet_container {
-    padding: 15px 20px;
+    padding-left: 20px;
+    padding-top: 15px;
     border-bottom: 1px solid var(--border-stroke);
-}
 
-.tweet_layout {
-    display: flex;
-}
+    .tweet_layout {
+        display: flex;
+       
 
-.profilepic img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
+        .profilepic {
+            flex: 13%;
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+        }
 
-.user_info_details {
-    padding-top: 3px;
-    flex: 1;
+        .user_info_details{
+            padding-top: 3px;
+            flex: 87%;
+
+            .user_details{
+
+                .user_name{
+                    font-weight: bold;
+                }
+
+                .stopdot{
+                    color: var(--border-stroke);
+                    padding-right: 8px;
+                }
+
+                .user_userName{
+                    padding: 0 8px ;
+                    color: var(--border-stroke);
+                }
+
+                .time_posted{
+                    color: var(--border-stroke);
+                }
+            }
+
+            .user_tweet{
+
+                .tweet_messages{
+                    font-size: 15px;
+                    font-weight: 1100;
+                }
+
+                .tweet_img{
+                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    img{
+                        max-width: 90%;
+                        max-height: 480px;
+                        border-radius: 10px;
+                    }
+                }
+
+                .comment_likes_bookmarks{
+                    display: flex;
+                    justify-content: space-around;
+                    padding-bottom: 10px;
+                    width: 85%;
+
+                    .reply,
+                    .retweet,
+                    .like,
+                    .view,
+                    .share{
+                        display: flex;
+                        color: var(--border-stroke);
+                        align-items: center;
+                        font-size: 14px;
+                    }
+
+                    // when the comment or retweet or like button is hovered the css effect is applied here
+                    .reply:hover,
+                    .view:hover{
+                        color: #1DA1F2;
+                    }
+
+                    .reply:hover.reply svg,
+                    .view:hover.view svg,
+                    .share:hover.share svg{
+                        background-color: #1da0f23f;
+                    }
+
+                    .retweet:hover{
+                        color: #17BF63;
+                    }
+
+                    .retweet:hover.retweet svg{
+                        background-color: rgba(0, 255, 255, 0.219);
+                    }
+
+                    .like:hover{
+                        color: #E0245E;
+                    }
+
+                    .like:hover.like svg{
+                        background-color: #e0246034;
+                    }
+                    
+
+                    svg{
+                        width: 38px;
+                        height: 38px;
+                        margin-right: 2px;
+                        border-radius: 50%;
+                        
+                        padding: 10px;
+                    }
+                }
+                
+            }
+        }
     }
-
-.user_details .user_name {
-    font-weight: bold;
-}
-
-.user_details .stopdot,
-.user_details .user_userName {
-    color: var(--border-stroke);
-}
-
-.user_details .user_userName {
-    padding: 0 8px;
-}
-
-.user_details .time_posted {
-    color: var(--border-stroke);
-}
-
-.user_tweet .tweet_messages {
-    font-size: 15px;
-    font-weight: 1100;
-}
-
-.user_tweet .tweet_img img {
-    max-width: 90%;
-    max-height: 480px;
-    border-radius: 10px;
-}
-
-.comment_likes_bookmarks {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 10px;
-    width: 85%;
-}
-
-.comment_likes_bookmarks .reply,
-.comment_likes_bookmarks .retweet,
-.comment_likes_bookmarks .like,
-.comment_likes_bookmarks .view,
-.comment_likes_bookmarks .share {
-    display: flex;
-    color: var(--border-stroke);
-    align-items: center;
-    font-size: 14px;
-}
-
-.comment_likes_bookmarks .reply:hover,
-.comment_likes_bookmarks .view:hover {
-    color: red;
-}
-
-.comment_likes_bookmarks .reply:hover svg,
-.comment_likes_bookmarks .view:hover svg,
-.comment_likes_bookmarks .share:hover svg {
-    background-color: #1da0f23f;
-}
-
-.comment_likes_bookmarks .retweet:hover {
-    color: #17BF63;
-}
-
-.comment_likes_bookmarks .retweet:hover svg {
-    background-color: rgba(0, 255, 255, 0.219);
-}
-
-.comment_likes_bookmarks .like:hover {
-    color: #E0245E;
-}
-
-.comment_likes_bookmarks .like:hover svg {
-    background-color: #e0246034;
-}
-
-.comment_likes_bookmarks svg {
-    width: 38px;
-    height: 38px;
-    margin-right: 2px;
-    border-radius: 50%;
-    padding: 10px;
 }

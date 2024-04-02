@@ -1,15 +1,18 @@
+// shared.service.ts
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TweetEventService {
-  private tweetPostedSubject = new Subject<void>();
+export class RefreshService {
+  private refreshSubject = new Subject<void>();
 
-  tweetPosted$ = this.tweetPostedSubject.asObservable();
+  refreshComponent() {
+    this.refreshSubject.next();
+  }
 
-  triggerTweetPosted() {
-    this.tweetPostedSubject.next();
+  getRefreshObservable() {
+    return this.refreshSubject.asObservable();
   }
 }

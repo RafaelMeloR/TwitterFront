@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TweetsService } from 'src/app/services/tweets/tweets.service';
 import { ITweet } from 'src/app/model/tweets';
-import { IUser } from 'src/app/model/user';
-import { TweetEventService } from 'src/app/services/shared/tweet-event.service';
+import { IUser } from 'src/app/model/user'; 
+import { RefreshService } from 'src/app/services/shared/tweet-event.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-tweet-list',
@@ -12,15 +14,19 @@ import { TweetEventService } from 'src/app/services/shared/tweet-event.service';
 export class TweetListComponent implements OnInit {
   tweets: ITweet[] = [];
   usersMap: { [username: string]: IUser } = {}; // Explicitly typed usersMap
+  refreshSubscription: Subscription | undefined;
 
   constructor(
-    private tweetsService: TweetsService,
-    private tweetEventService: TweetEventService // Inject the TweetEventService
+    private refreshService: RefreshService,
+    private tweetsService: TweetsService, 
   ) {}
 
   ngOnInit(): void {
     this.loadData();
-    this.subscribeToTweetPosted();
+    this.refreshSubscription = this.refreshService.getRefreshObservable().subscribe(() => {
+      this.loadData();
+      console.log('Refreshed');
+    });
   }
 
   loadData() {
@@ -68,10 +74,7 @@ export class TweetListComponent implements OnInit {
     );
   }
    
-  private subscribeToTweetPosted() {
-    this.tweetEventService.tweetPosted$.subscribe(() => {
-      this.loadData(); // Refresh the list of tweets
-      this.ngOnInit();
-    });
+  ngOnDestroy() {
+    this.refreshSubscription?.unsubscribe();
   }
 }
