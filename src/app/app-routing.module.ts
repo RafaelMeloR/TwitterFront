@@ -5,7 +5,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ChildRoutingModule } from './routing/child/child-routing.module'; 
 
 const routes: Routes = [ 
-  { path: 'i', component: NavigationComponent, loadChildren: () => ChildRoutingModule },
   { path: 'home', component: HomeComponent }
 
 ];
