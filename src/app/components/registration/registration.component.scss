@@ -275,34 +275,22 @@
                     border-radius: 30px;
 
                     p {
-                        color: var(--bg-color)
-                    }
-                }
-            }
-
+                        color: var(--bg-color)     }    }    } 
             .or_text {
                 color: var(--text-color);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                text-align: center;
-
+                text-align: center; 
                 hr {
                     width: 43%;
                     border: .5px solid var(--border-stroke)
-                }
-
-                p {
-                    margin: 0 5px
-                }
-            }
-
+                }   p {   margin: 0 5px   }    } 
             .email_forms {
                 width: 100%;
                 margin-top: 20px;
                 display: flex;
-                justify-content: center;
-
+                justify-content: center; 
                 input {
                     width: 100%;
                     margin: 0 auto;
@@ -310,20 +298,12 @@
                     background-color: var(--bg-color);
                     border-radius: 6px;
                     border: 1px solid var(--border-stroke)
-                }
-
-                input:focus {
-                    outline: none;
-                    border: 2px solid var(--twitter-blue)
-                }
-            }
-
+                }    input:focus {    outline: none;   border: 2px solid var(--twitter-blue)    }      } 
             .buttons_next {
                 margin-top: 23px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-
+                align-items: center; 
                 a {
                     display: flex;
                     width: 100%;
@@ -334,21 +314,14 @@
                     font-weight: 700;
                     font-family: "Roboto", sans-serif;
                     padding: 6px;
-                    border-radius: 30px;
-
-                    p {
+                    border-radius: 30px;    p {
                         color: var(--bg-color)
-                    }
-                }
-
+                    }   } 
                 a:last-of-type {
                     background-color: #000;
                     border: 1px solid var(--border-stroke);
                     color: var(--text-color)
-                }
-            }
-
-            .signup_text {
+                }  }     .signup_text {
                 margin-top: 20px;
                 text-align: center;
                 color: var(--text-color);
@@ -359,28 +332,17 @@
 
                     a {
                         color: var(--twitter-blue)
-                    }
-                }
-            }
-        }
-
-        .password_section {
+                    }  }  }  }   .password_section {
             display: none;
             width: 80%;
             margin: 0 auto;
-            color: var(--text-color);
-
-            .head_title {
+            color: var(--text-color);  .head_title {
                 margin-top: 40px;
                 font-size: 30px;
                 font-weight: 700;
                 letter-spacing: .3rem
-            }
-
-            .forms {
-                margin-top: 30px;
-
-                input {
+            }  .forms {
+                margin-top: 30px;  input {
                     padding: 20px;
                     width: 100%;
                     color: var(--border-stroke);
@@ -388,51 +350,29 @@
                     border-radius: 5px;
                     font-family: 'Roboto', sans-serif;
                     font-weight: 300
-                }
-
-                input:focus {
+                }   input:focus {
                     outline: none
-                }
-
-                input:last-of-type {
+                }    input:last-of-type {
                     padding: 15px;
                     width: 100%;
                     background-color: transparent;
                     border: 1px solid var(--border-stroke);
                     margin-top: 30px;
                     color: var(--text-color)
-                }
-
-                .btn_section {
+                } .btn_section {
                     width: 80%;
                     position: absolute;
                     bottom: 10%;
                     left: 50%;
-                    transform: translateX(-50%);
-
-                    button {
+                    transform: translateX(-50%); button {
                         width: 100%;
                         color: var(--bg-color);
                         background-color: var(--border-stroke);
                         padding: 15px;
                         border-radius: 30px;
                         font-weight: 700
-                    }
-
-                    p {
-                        padding-top: 10px
-                    }
-                }
-            }
-        }
-    }
-}
-
-.error_dialog {
-    width: 70%;
-    margin: 10px auto;
-    background-color: var(--twitter-blue);
-    color: #fff;
+                    }   p {   padding-top: 10px  }  }   }   }  } } 
+.error_dialog {  width: 70%; margin: 10px auto;  background-color: var(--twitter-blue);  color: #fff;
     text-align: center;
     padding: 10px 5px;
     border-radius: 7px;
