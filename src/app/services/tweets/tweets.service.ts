@@ -39,7 +39,7 @@ export class TweetsService {
 
   urlLikeTweet= 'https://twitterapiv.azurewebsites.net/api/Tweet/likeTweet';
   likeTweet(tweetId: number): Observable<any> {  
-    return this.http.put(`${this.urlLikeTweet}/${tweetId}`, null);  
+    return this.http.put(`${this.urlLikeTweet}/${tweetId}`, {});  
   }
 }
  
