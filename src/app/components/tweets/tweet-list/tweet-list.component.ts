@@ -91,9 +91,9 @@ export class TweetListComponent implements OnInit {
         this.ngOnInit();
       },
       (error) => {
-        console.error('Error liked tweet:', error);
         this.loadData();
         this.ngOnInit();
+        console.error('Error liked tweet:', error); 
       },
     
     );
