@@ -81,6 +81,23 @@ export class TweetListComponent implements OnInit {
     
     );
   }
+
+ likeTweet(tweetId: number) {
+    this.tweetsService.likeTweet(tweetId).subscribe(
+      () => { 
+        this.tweets = this.tweets.filter(tweet => tweet.id !== tweetId);
+        console.log('Tweet liked successfully');
+        this.loadData();
+        this.ngOnInit();
+      },
+      (error) => {
+        console.error('Error liked tweet:', error);
+        this.loadData();
+        this.ngOnInit();
+      },
+    
+    );
+  }
    
   ngOnDestroy() {
     this.refreshSubscription?.unsubscribe();

@@ -36,6 +36,11 @@ export class TweetsService {
   deleteTweet(tweetId: number): Observable<any> {  
     return this.http.delete(`${this.urldDeleteTweet}/${tweetId}`);  
   }
+
+  urlLikeTweet= 'https://twitterapiv.azurewebsites.net/api/Tweet/likeTweet';
+  likeTweet(tweetId: number): Observable<any> {  
+    return this.http.put(`${this.urlLikeTweet}/${tweetId}`, null);  
+  }
 }
  
  
