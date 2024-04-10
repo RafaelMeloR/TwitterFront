@@ -4,6 +4,7 @@ import { ITweet } from 'src/app/model/tweets';
 import { IUser } from 'src/app/model/user'; 
 import { RefreshService } from 'src/app/services/shared/tweet-event.service';
 import { Subscription } from 'rxjs';
+import { UserProfile } from 'src/app/model/user-profile';
 
 
 @Component({
@@ -15,6 +16,13 @@ export class TweetListComponent implements OnInit {
   tweets: ITweet[] = [];
   usersMap: { [username: string]: IUser } = {}; // Explicitly typed usersMap
   refreshSubscription: Subscription | undefined;
+  userProfile: UserProfile = { 
+    username: '',
+    fullname: '',
+    profile_image: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg',
+    registration_date: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  };
 
   constructor(
     private refreshService: RefreshService,

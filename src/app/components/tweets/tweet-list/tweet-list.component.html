@@ -1,7 +1,9 @@
 <div id={{tweet.id}} *ngFor="let tweet of tweets" class="tweet_container">
     <div class="tweet_layout">
         <div class="profilepic">
-            <img *ngIf="usersMap[tweet.authorId]" [src]="usersMap[tweet.authorId].profileImage" alt="">
+            <img [src]="userProfile.profile_image" alt="">
+
+        <img *ngIf="usersMap[tweet.authorId]" [src]="usersMap[tweet.authorId].profileImage" alt="">
         </div>
         <div class="user_info_details">
             <div class="user_details">
