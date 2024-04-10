@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';   
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';   
 import { Observable } from 'rxjs';
 import { ITweet } from 'src/app/model/tweets';
 import { IUser } from 'src/app/model/user';
@@ -39,8 +39,13 @@ export class TweetsService {
 
   urlLikeTweet= 'https://twitterapiv.azurewebsites.net/api/Tweet/likeTweet';
   likeTweet(tweetId: number): Observable<any> {  
-    return this.http.put(`${this.urlLikeTweet}/${tweetId}`, null);  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json' 
+    });
+    const options = { headers: headers }; // Create options object with headers
+    return this.http.put(`${this.urlLikeTweet}/${tweetId}`, null, options);  
   }
+
 }
  
  
