@@ -49,9 +49,7 @@ export class HomeComponent implements OnInit {
         status: true,
         createdAt: new Date(),
         updatedAt: new Date()
-      };
-
-    
+      }; 
       this.tweetService.postTweets(tweet).subscribe(
         (response) => {
           console.log('Tweet posted successfully:', response); 

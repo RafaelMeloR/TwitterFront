@@ -42,6 +42,10 @@ export class TweetsService {
     return this.http.post(`${this.urlLikeTweet}/${tweetId}`, tweetId);  
   } 
    
+  urlUpdateTweet= 'https://twitterapiv.azurewebsites.net/api/Tweet/updateTweet';
+  updateTweet(tweet: ITweet): Observable<any> {  
+    return this.http.put(`${this.urlUpdateTweet}/${tweet.id}`, tweet);  
+  } 
   
 }
  

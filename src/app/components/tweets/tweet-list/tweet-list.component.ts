@@ -5,6 +5,8 @@ import { IUser } from 'src/app/model/user';
 import { RefreshService } from 'src/app/services/shared/tweet-event.service';
 import { Subscription } from 'rxjs';
 import { UserProfile } from 'src/app/model/user-profile';
+import { MatDialog } from '@angular/material/dialog';
+import { TweetModalComponent } from '../tweets-modal/tweet-modal.component';
 
 
 @Component({
@@ -25,6 +27,7 @@ export class TweetListComponent implements OnInit {
   };
 
   constructor(
+    public dialog: MatDialog,
     private refreshService: RefreshService,
     private tweetsService: TweetsService, 
   ) {}
@@ -34,6 +37,22 @@ export class TweetListComponent implements OnInit {
     this.refreshSubscription = this.refreshService.getRefreshObservable().subscribe(() => {
       this.loadData();
       console.log('Refreshed');
+    });
+  }
+
+  openDialog(tweet: ITweet): void {
+    const dialogRef = this.dialog.open(TweetModalComponent, {
+      data: { tweet, usersMap: this.usersMap },
+      maxWidth: '600px',
+      maxHeight: '600px',
+      width: '100%',
+      height: '100%',
+      panelClass: 'dialog_box'
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      //console.log('The dialog was closed');
+      this.loadData();
     });
   }
 

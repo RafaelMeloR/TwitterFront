@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NavigationLinksComponent } from './components/navigation-links/navigation-links.component'; 
 import { TrendsComponent } from './components/trends/trends.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { TweetModalComponent } from './components/tweets/tweets-modal/tweet-modal.component';
 
 
 @NgModule({
@@ -23,17 +24,22 @@ import { RegistrationComponent } from './components/registration/registration.co
     TweetListComponent, 
     NavigationLinksComponent,
     TrendsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    TweetModalComponent
      
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+  ],
+  exports: [
+    TweetModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
